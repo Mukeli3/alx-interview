@@ -21,7 +21,7 @@ def canUnlockAll(boxes):
 
     """ performing DFS to unlock all boxes """
     while keys:
-        c_key = keys.pop(0)  # take a key from queue
+        c_key = keys.pop()  # take a key from queue
         """ Check whether key unclocks an unlocked box """
         if c_key not in unlck_bxs:
             unlck_bxs.add(c_key)  # unlock the box
