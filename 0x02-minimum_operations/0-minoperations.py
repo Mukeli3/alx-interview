@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-This module defines a method that calculates the fewest number of operations needed to result in exactly n H characters in a text file where there is a single character H. The text editor can execute only two operations in this file: Copy All and Paste
+This module defines a method that calculates the fewest number of operations
+needed to result in exactly n H characters in a text file where there is a
+single character H. The text editor can execute only two operations in this
+file: Copy All and Paste
 """
 
 
