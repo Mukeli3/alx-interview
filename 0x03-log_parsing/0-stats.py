@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """
+This module defines  a script that reads stdin line by line and
+computes metrics
 """
 import sys
 
 
 def print_stats(fsize, counts):
-    """ """
+    """ function definition """
     print(f"File size: {fsize}")
     for code in sorted(counts.keys()):
         if counts[code] > 0:
