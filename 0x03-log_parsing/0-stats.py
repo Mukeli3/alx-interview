@@ -6,6 +6,12 @@ computes metrics
 import sys
 
 
+if __name__ == '__main__'
+total_fsize = 0
+counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+lcount = 0
+
+
 def print_stats(fsize, counts) -> None:
     """ function prints total file size and each status code count """
     print(f"File size: {fsize}")
@@ -13,10 +19,6 @@ def print_stats(fsize, counts) -> None:
         if counts[code] > 0:
             print(f"{code}: {counts[code]}")
 
-
-total_fsize = 0
-counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-lcount = 0
 
 try:
     for line in sys.stdin:
