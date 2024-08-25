@@ -39,5 +39,5 @@ def validUTF8(data):
         else:
             if not (byte & f_mask and not (byte & s_mask)):
                 return False
-                n -= 1
+            n -= 1
     return n == 0
