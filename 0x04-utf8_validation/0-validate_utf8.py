@@ -35,7 +35,9 @@ def validUTF8(data):
             elif (byte & (f_mask >> 4)) == (f_mask >> 3):
                 n = 3  # 4-byte character
             else:
-                if not (byte & f_mask and not (byte & s_mask)):
-                    return False
+                return False
+        else:
+            if not (byte & f_mask and not (byte & s_mask)):
+                return False
                 n -= 1
     return n == 0
