@@ -24,6 +24,7 @@ def safe(bod, row, colm, N):
             return False
     return True
 
+
 def solve_nqueens(N, row, bod, solns):
     """
     Use backtracking to solve N queens, placing the queens recursively and
@@ -38,12 +39,14 @@ def solve_nqueens(N, row, bod, solns):
             bod[row] = colm
             solve_nqueens(N, row + 1, bod, solns)
 
+
 def nqueens(N):
     bod = [-1] * N
     solns = []
     solve_nqueens(N, 0, bod, solns)
     for soln in solns:
         print(soln)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
