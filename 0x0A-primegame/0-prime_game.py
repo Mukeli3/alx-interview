@@ -8,9 +8,9 @@ and their multiples from a set of consecutive integers
 
 def isWinner(x, nums):
     """
-    Function determines
+    Function determines winner
     Args:
-        x - number of rounds 
+        x - number of rounds
         nums - an array of n
         n - last and included int in a set from 1
     Returns:
@@ -19,7 +19,7 @@ def isWinner(x, nums):
     """
     def sieve_of_eratosthenes(n):
         """
-         Function geneates prime numbers up to max number in nums
+         Function generates prime numbers up to max number in nums
         """
         s = [True] * (n + 1)
         s[0] = s[1] = False
@@ -30,7 +30,7 @@ def isWinner(x, nums):
                 for m in range(i * i, n + 1, i):
                     s[m] = False
         return primes
-    
+
     def game_winner(n, primes):
         """
         Helper function, determines the winner for a given round with n numbers
