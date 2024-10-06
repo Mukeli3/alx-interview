@@ -33,28 +33,46 @@ def isWinner(x, nums):
 
     def game_winner(n, primes):
         """
-        Helper function, determines the winner for a given round with n numbers
+        Function determines the winner for a single round
+        Args:
+            n (int): the maximum number in the round
+            primes (list): a list of primes less than or equal to n
+        Returns:
+            str: "Maria" if Maria wins, "Ben" if Ben wins
         """
-        primes_in_set = [p for p in primes if p <= n]
-        ms = 0
-        # Count the number of moves (removals) until no primes are left
-        for prime in primes_in_set:
-            if prime <= n:
-                ms += 1
-                # Remove the prime and its multiples
-                n -= 1
-        # Maria wins if the number of moves is odd, Ben wins if even
-        return "Maria" if ms % 2 != 0 else "Ben"
+        is_prime = [False] * (n + 1)
+        for prime in primes:
+            if prime > n:
+                break
+            is_prime[prime] = True
 
-    # Find the maximum n in nums to avoid recalculating primes for each round
+        moves = 0
+        while n > 1:
+            found_prime = False
+            for i in range(2, n + 1):
+                if is_prime[i]:
+                    moves += 1
+                    for j in range(i, n + 1, i):
+                        is_prime[j] = False
+                    found_prime = True
+                    break
+            if not found_prime:
+                break
+
+        # Maria wins if moves is odd, Ben wins if moves is even
+        return "Maria" if moves % 2 != 0 else "Ben"
+
+    if not x or not nums:
+        return None
+
+    # Find the maximum n in nums to optimize prime calculation
     max_n = max(nums)
     primes = sieve_of_eratosthenes(max_n)
 
-    # Count the wins for each player
+    # Count wins for each player
     maria_wins = 0
     ben_wins = 0
 
-    # Simulate each round
     for n in nums:
         winner = game_winner(n, primes)
         if winner == "Maria":
