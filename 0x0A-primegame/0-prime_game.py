@@ -40,6 +40,9 @@ def isWinner(x, nums):
         Returns:
             str: "Maria" if Maria wins, "Ben" if Ben wins
         """
+        if n < 2:
+            return None
+
         is_prime = [False] * (n + 1)
         for prime in primes:
             if prime > n:
@@ -62,11 +65,14 @@ def isWinner(x, nums):
         # Maria wins if moves is odd, Ben wins if moves is even
         return "Maria" if moves % 2 != 0 else "Ben"
 
-    if not x or not nums:
+    if not x or x <= 0 or not nums:
         return None
 
     # Find the maximum n in nums to optimize prime calculation
     max_n = max(nums)
+    if max_n < 2:
+        return None
+
     primes = sieve_of_eratosthenes(max_n)
 
     # Count wins for each player
